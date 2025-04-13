@@ -2,8 +2,18 @@
 
 # This script attempts to find the optimal MTU for a CGNAT connection.
 
+HOST="$1"
+
+if [ -z "$HOST" ]; then
+  echo "Usage: $0 <wireguard_peer_ip>"
+  exit 1
+fi
+
+echo "🔍 Testing MTU through WireGuard tunnel to HOST..."
+
+
 # Defaults
-HOST="1.1.1.1" # Target host for MTU testing (Cloudflare's DNS)
+#HOST="1.1.1.1" # Target host for MTU testing (Cloudflare's DNS)
 CGNAT_OVERHEAD=20 # Estimated overhead in bytes for CGNAT (adjust if necessary)
 START_MTU=1500 # Starting MTU value for Ethernet
 MIN_MTU=1200 # Minimum MTU value to test
