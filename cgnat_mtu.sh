@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# This script attempts to find the optimal MTU for a WireGuard VPN connection
-# while accounting for CGNAT overhead.
+# This script attempts to find the optimal MTU for a CGNAT connection.
 
 # Defaults
 HOST="1.1.1.1" # Target host for MTU testing (Cloudflare's DNS)
@@ -12,7 +11,7 @@ MIN_MTU=1200 # Minimum MTU value to test
 echo "Starting MTU optimization with $CGNAT_OVERHEAD overhead, change in script if wanted"
 
 # Adjust MTU based on CGNAT overhead
-CALCULATED_MTU=$((START_MTU - CGNAT_OVERHEAD))
+CALCULATED_MTU=$((START_MTU))
 
 # Function to test MTU
 test_mtu() {
@@ -33,7 +32,7 @@ while [ $optimal_mtu -ge $MIN_MTU ]; do
     break
   else
     echo "MTU $optimal_mtu is too high, reducing..."
-    optimal_mtu=$((optimal_mtu - 10))
+    optimal_mtu=$((optimal_mtu - 2))
   fi
 done
 
