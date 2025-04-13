@@ -32,6 +32,9 @@ Show status
 ```bash
 wg show
 ```
+fallocate -l 1G bigtestfile.bin
+python3 -m http.server 8080 --bind 10.10.0.1
+
 
 
 This is a MTU Checker over VPN
