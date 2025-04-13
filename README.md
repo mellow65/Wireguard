@@ -1,5 +1,8 @@
 # Wireguard
-A semi standard install of wireguard so I could get access to my home lab.  
+I live behind a CGNAT internet and have no chance a public IP.  My real world answer to this was using a VPS as a way to get a public IP.  With NGINX Proxy Manager doing the SSL signitures and to forward any requests to an IP and port. 
+
+I had been using tailscale, and quite frankly it worked great, but I wanted to try doing my own wireguard VPN, so I did my best to set some scripts to be repeatable.
+ 
 
 
 This is a wireguard installer
