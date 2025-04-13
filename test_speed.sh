@@ -2,7 +2,13 @@
 
 # test_speed.sh
 
-URL="http://10.10.0.1:8080/largefile.bin"
+if [ -z "$1" ]; then
+  echo "Usage: $0 <IP Address>"
+  exit 1
+fi
+
+IP="$1"
+URL="http://$IP:8080/largefile.bin"
 DEST="largefile.bin"
 
 echo "Starting download from $URL ..."
