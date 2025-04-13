@@ -4,7 +4,7 @@ A semi standard install of wireguard so I could get access to my home lab.
 
 This is a wireguard installer
 ```bash
-wget https://raw.githubusercontent.com/mellow65/Debian-11-Unifi/refs/heads/main/wg-install.sh -O wg-install.sh && bash wg-install.sh
+wget https://raw.githubusercontent.com/mellow65/Wireguard/refs/heads/main/wg-install.sh -O wg-install.sh && bash wg-install.sh
 ```
 
 Client side, copy config file to /etc/wireguard/wg0.conf
