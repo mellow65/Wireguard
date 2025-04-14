@@ -3,6 +3,7 @@ I live behind a CGNAT internet and have no chance a public IP.  My real world an
 
 I had been using tailscale, and quite frankly it worked great, but I wanted to try doing my own wireguard VPN, so I did my best to set some scripts to be repeatable.
 
+All my scripts have been written for Deb 12, I have not tried it on anything else. 
 
 This is a wireguard installer
 ```bash
@@ -14,8 +15,8 @@ Client side, copy config file to /etc/wireguard/wg0.conf
 
 Bring up wg0
 ```bash
-wg-quick up wg0
-systemctl enable wg-quick@wg0
+wg-quick up wg0  #brings up wg0
+systemctl enable wg-quick@wg0 #sets up to be started on boot.
 ```
 
 Stop wg0
