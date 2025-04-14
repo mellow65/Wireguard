@@ -1,22 +1,22 @@
 #!/bin/bash
 
-# This script attempts to find the optimal MTU for a CGNAT connection.
+# This script attempts to find the optimal MTU for a CGNAT or a VPN connection.
 
-HOST="$1"
+# Prompt user for HOST
+read -p "Enter IP or domain to ping (e.g., 1.1.1.1, VPS Wireguard IP: 10.10.0.1, VPN host name: us8240.nordvpn.com): " HOST
+HOST="${HOST:-1.1.1.1}"  # Default to 1.1.1.1 if empty
 
-if [ -z "$HOST" ]; then
-  echo "Usage: $0 <wireguard_peer_ip>"
-  exit 1
-fi
+# Prompt user for CGNAT overhead
+read -p "Enter an overhead in bytes (CGNAT can be upto 20, wireguard upto 60, recomend one at a time): " CGNAT_OVERHEAD
+CGNAT_OVERHEAD="${CGNAT_OVERHEAD:-20}"  # Default to 20 if empty
 
-echo "🔍 Testing MTU through WireGuard tunnel to HOST..."
-
+echo "🔍 Testing MTU to $HOST..."
+echo "🌐 Byte Overhead set to $CGNAT_OVERHEAD bytes"
 
 # Defaults
-#HOST="1.1.1.1" # Target host for MTU testing (Cloudflare's DNS)
-CGNAT_OVERHEAD=20 # Estimated overhead in bytes for CGNAT (adjust if necessary)
 START_MTU=1500 # Starting MTU value for Ethernet
-MIN_MTU=1200 # Minimum MTU value to test
+MIN_MTU=1200   # Minimum MTU value to test
+
 
 echo "Starting MTU optimization with $CGNAT_OVERHEAD overhead, change in script if wanted"
 
