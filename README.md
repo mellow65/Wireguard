@@ -49,7 +49,7 @@ python3 -m http.server 8080 --bind 10.10.0.1
 
 This is a MTU Checker over VPN
 ```bash
-wget https://raw.githubusercontent.com/mellow65/Wireguard/refs/heads/main/find_mtu.sh -O find_mtu.sh && bash find_mtu.sh 10.10.0.1
+wget https://raw.githubusercontent.com/mellow65/Wireguard/refs/heads/main/find_mtu.sh -O find_mtu.sh && bash find_mtu.sh
 ```
 
 ```bash
