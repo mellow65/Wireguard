@@ -53,5 +53,5 @@ wget https://raw.githubusercontent.com/mellow65/Wireguard/refs/heads/main/find_m
 ```
 
 ```bash
-./bash find_mtu.sh 10.10.0.1
+./bash find_mtu.sh
 ```
